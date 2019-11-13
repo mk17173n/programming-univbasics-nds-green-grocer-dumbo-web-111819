@@ -1,7 +1,16 @@
 def find_item_by_name_in_collection(name, collection)
-  # Implement me first!
-  #
-  # Consult README for inputs and outputs
+    # Implement me first!
+  collection.each do |hash|
+    return hash if hash[:item] == name
+  end
+    nil
+end
+
+
+#Finds all dups in an AoH and returns a H
+def find_dups(cart)
+  cart.group_by {|e| e}.select { |k, v| v.size > 1}.map {|k, v| [k.values[0], v.size] }.to_h
+end
 end
 
 def consolidate_cart(cart)
